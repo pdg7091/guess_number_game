@@ -10,9 +10,13 @@ print(f'Hello, {name}, I am thinking of a number between 1 and 20.')
 
 while number_of_guesses < 6:
     print('Take a guess.')
-    guess = input()
-    guess = int(guess)
-    number_of_guesses = number_of_guesses + 1
+    try:
+        guess = input()
+        guess = int(guess)
+        number_of_guesses = number_of_guesses + 1
+    except ValueError:
+        print('Please enter a valid number between 1 and 20.')
+        continue
 
     if guess < number:
         print('Your guess is too low.')
